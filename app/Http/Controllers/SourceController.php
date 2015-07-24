@@ -23,9 +23,9 @@ class SourceController extends Controller
             $objectives_statuses [] = $objective->status_id;
         }
 
-        $count_of_achieved_id = array_count_values($objectives_statuses);
+        if (!empty($objectives_statuses)) $count_of_achieved_id = array_count_values($objectives_statuses);
 
-        if ($count_of_achieved_id[4] == count($objectives_statuses))
+        if ( (!empty($count_of_achieved_id[4])) && ($count_of_achieved_id[4] == count($objectives_statuses)) )
         {
             return true;
         }
